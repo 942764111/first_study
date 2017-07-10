@@ -1,0 +1,31 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+mx|Alert
+{	
+	title-style-name:alertTitle;	
+	buttonStyleName:alertButton;
+	gradient-angle:90;
+	borderSkin:ClassReference("studentLogin.com.skins.AlertBorderSkin");
+}
+.alertTitle
+{
+	show-border:false;
+	show-shadow:false;	
+	color:#ffffff;
+	font-weight:bold;
+	font-size:14;
+}
+mx|Button.alertButton {
+	skin:ClassReference("studentLogin.com.skins.AlertNormalButtonSkin");	
+	emphasizedSkin: ClassReference("studentLogin.com.skins.AlertEmphasizedButtonSkin");
+	cornerRadius:5;
+	paddingTop: 3;
+	paddingBottom: 4;
+	color: #ffffff;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#ffffff;
+	fontSize: 12;
+	fontWeight: bold;	
+}

@@ -1,0 +1,101 @@
+ul#TabPage2 {
+	line-height:120%;
+	float:left;
+	background:transparent;
+	margin:0px;
+	padding:5 0 0 7px;}
+	
+li{ text-align:left; margin-bottom:1px; list-style:none;}
+a:link{text-decoration:none;color:#42414A;}
+a:visited {text-decoration:none;color:#42414A;}
+a:hover {text-decoration:none;color:#999;}
+a:active {text-decoration:none;color:#999;}
+
+
+body {
+color: #222;
+text-align:left;
+margin:0;
+font-family:Arial,tahoma,Helvetica,sans-serif;
+font-size: 13px;
+height:100%;
+width:100%;
+overflow: auto;
+line-height: 150%;
+background-repeat: no-repeat;
+background-position: 50%;
+
+word-break:break-all;
+}
+#logo1 {
+	
+	background-repeat: no-repeat;
+	background-position: left top;
+	height:100px;
+	width:100%;
+	background:url(../img/index/picture/1.jpg) no-repeat;
+}
+
+
+ul#TabPage2 li a{
+	display:block;
+	padding:6px 1px 0px 36px;
+	width:178px;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #F60;
+	text-align: left;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFF;
+	border-right-color: #FFF;
+	border-left-color: #FFF;
+	height:22px;
+	
+}
+ul#TabPage2 li a:hover{color:#115888;border:1px #1879BD solid; background: url("../images/left/arrow.gif") no-repeat 10px center;}
+#now11 {
+	height:26px;
+	display:block;
+	padding:6px 1px 2px 10px;
+	width:178px;
+	color:#115888;
+	border:1px #1879BD solid;
+	background:#ADD7F7;
+	text-align: left ;
+}
+ul#TabPage2 li a.Selected{padding:2px 1px 0px 36px; width:178px;background:#fff url("../img/left/arrow.gif") no-repeat 18px center;font-weight:600;color:#115888;}
+ul#TabPage2 li a.Selected:hover {padding:2px 1px 0px 36px;width:178px;background:#ADD7F7 url("../img/left/arrow.gif") no-repeat 18px center;font-weight:400;color:#115888;}
+iframe {
+	height:100%;
+	width:100%;
+	overflow: auto;
+	background-color: #FFF;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	clip: rect(0px,0px,0px,0px);
+	padding: 0px;
+
+}
+#login_bg {
+	BACKGROUND-IMAGE: url(../img/index/picture/3.jpg);
+	background-repeat: repeat-x;
+	vertical-align: bottom;
+	text-align: right;
+	
+	}
+	.login_txt {
+	FONT-SIZE: 12px; COLOR: #18679A; LINE-HEIGHT: 25px; FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.Submit {
+	FONT-SIZE: 12px; COLOR: #629dae; BACKGROUND-REPEAT: repeat-x; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.login_txt_bt {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #666666; LINE-HEIGHT: 25px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}

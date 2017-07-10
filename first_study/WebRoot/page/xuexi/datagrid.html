@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQuery EasyUI</title>
+	<link rel="stylesheet" type="text/css" href="../../js/ui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../js/ui/themes/icon.css">
+	<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="../../js/ui/jquery.easyui.min.js"></script>
+
+	
+	<script>
+	   
+	
+	var products = '';
+	$.ajax({
+				type:'Post',
+				contentType:'application/json',
+				url:'queryZsd2',
+				async :false,
+			
+				dataType:'json',
+				success:function(data){
+	products=data.list;
+					
+				}
+			});
+		
+	
+var users ="";
+$.ajax({
+				type:'Post',
+				contentType:'application/json',
+				url:'uploadnext.action',
+				async :false,
+				dataType:'json',
+				success:function(data){
+	            users=data;
+				
+				}
+			});
+			
+			
+$(function(){
+$('#tt').datagrid({
+width:680,
+height:350,
+singleSelect:true,
+columns:[[
+{field:'no',title:'文件编号',width:55},
+{field:'fileName',title:'文件名称',width:140},
+{field:'zlms',title:'摘要',width:300,editor:'text'},
+{field:'zsdid',title:'知识点id',width:300,editor:'text'},
+{field:'scrq',title:'提示',width:300,editor:'text',sortable:false,hidden:true},
+{field:'jxnr',title:'提示',width:300,editor:'text',sortable:false,hidden:true},
+{field:'filePath',title:'路径',width:300,editor:'text',sortable:false,hidden:true},
+{field:'lxm',title:'路径',width:300,editor:'text',sortable:false,hidden:true},
+
+
+{field:'action',title:'操作',width:77,align:'center',
+formatter:function(value,row,index){
+if (row.editing){
+var s = '<a href="#" onclick="saverow('+index+')">保存</a> ';
+var c = '<a href="#" onclick="cancelrow('+index+')">取消</a>';
+return s+c;
+} else {
+var e = '<a href="#" onclick="editrow('+index+')">编辑</a> ';
+
+return e;
+}
+}
+}
+]],
+toolbar:[{
+text:'增加',
+iconCls:'icon-add',
+handler:addrow
+},{
+text:'保存',
+iconCls:'icon-save',
+handler:saveall
+},{
+text:'取消',
+iconCls:'icon-cancel',
+handler:cancelall
+}],
+onBeforeEdit:function(index,row){
+row.editing = true;
+$('#tt').datagrid('refreshRow', index);
+editcount++;
+},
+onAfterEdit:function(index,row){
+row.editing = true;
+$('#tt').datagrid('refreshRow', index);
+editcount--;
+},
+onCancelEdit:function(index,row){
+row.editing = false;
+$('#tt').datagrid('refreshRow', index);
+editcount--;
+}
+}).datagrid('loadData',users).datagrid('acceptChanges');
+});
+var editcount = 0;
+function editrow(index){
+$('#tt').datagrid('beginEdit', index);
+}
+function deleterow(index){
+$.messager.confirm('确认','是否真的删除?',function(r){
+if (r){
+$('#tt').datagrid('deleteRow', index);
+}
+});
+}
+function saverow(index){
+$('#tt').datagrid('endEdit', index);
+}
+function cancelrow(index){
+$('#tt').datagrid('cancelEdit', index);
+}
+function addrow(){
+if (editcount > 0){
+$.messager.alert('警告','当前还有'+editcount+'记录正在编辑，不能增加记录。');
+return;
+}
+$('#tt').datagrid('appendRow',{
+no:'',
+name:'',
+addr:'',
+email:'',
+birthday:''
+});
+}
+function saveall(){
+$('#tt').datagrid('acceptChanges');
+var data=$("#tt").datagrid("getData");
+var da=JSON.stringify(data);
+
+$.ajax({
+
+                contentType:'application/json;charset=UTF-8',
+                type:'Post',
+				url:'updatescwj.action?rows='+da,
+			    async :false,
+			  
+				dataType:'json',
+				success:function(data){
+	          
+					if(data.state=='0'){
+					//成功
+					parent.location.replace(parent.location.href);
+					}
+				}
+			});
+}
+function cancelall(){
+$('#tt').datagrid('rejectChanges');
+}
+</script>
+<script type="text/javascript">
+$(function(){
+$.ajax({
+				type:'get',
+				
+				url:'coverSwf.action',
+				async :true,
+			
+				success:function(data){
+	           
+				}
+			});
+})
+</script>
+	<script type="text/javascript" src="../../js/base-loading.js"></script>
+</head>
+<body>
+
+	<table id="tt"></table>
+	
+</body>
+</html>

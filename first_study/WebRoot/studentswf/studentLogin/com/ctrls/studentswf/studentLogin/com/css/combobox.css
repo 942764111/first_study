@@ -1,0 +1,9 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+mx|ComboBox {
+	open-duration: 500;
+	close-duration: 500;
+	alternatingItemColors: #DFDFDF, #EEEEEE;
+}

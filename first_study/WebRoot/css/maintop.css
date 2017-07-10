@@ -1,0 +1,27 @@
+/*系统头部图片*/
+#pic {
+	
+	background-repeat: no-repeat;
+	background-position: left top;
+	height:100px;
+	width:100%;
+	background:url(../img/index/picture/1.jpg) no-repeat;
+}
+#pic ul{
+		margin-left:1131px;
+		padding-top:14px;
+		list-style:none;
+		}
+		#pic #pic1{
+		position:absolute;
+		left:1175px;
+		top:15px;}
+		#pic #pic3{
+		position:absolute;
+		left:1175px;
+		top:42px;}
+		#pic #pic2{
+		position:absolute;
+		left:1162px;
+		top:32px;}
+

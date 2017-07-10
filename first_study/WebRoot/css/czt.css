@@ -1,0 +1,42 @@
+
+	   #tipmessage
+      {
+        display:none;
+        z-index:1000;
+        border:1px solid #448833;
+        position:absolute;
+        background:#ffffff;
+        max-width:300px;
+        max-height:40px;
+        padding:5px 10px;
+      }
+
+		#shareit-box {
+	   position:absolute;
+	   display:none;
+     }
+     	#shareit-box1 {
+	   position:absolute;
+	   display:none;
+     }
+     #shareit-box2 {
+	   position:absolute;
+	   display:none;
+     }
+     
+     #shareit-box3 {
+	   position:absolute;
+	   display:none;
+     }
+      #shareit-box4 {
+	   position:absolute;
+	   display:none;
+     }
+       #shareit-box5 {
+	   position:absolute;
+	   display:none;
+     }
+       #shareit-box6 {
+	   position:absolute;
+	   display:none;
+     }

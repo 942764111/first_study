@@ -1,0 +1,718 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JsMind Demo</title>
+<link type="text/css" rel="stylesheet"
+	href="../../assets/jsmind/jsmind.css">
+<link rel="stylesheet" type="text/css"
+	href="../../themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+<link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="../../assets/css/ace.min.css" />
+<link rel="stylesheet" type="text/css" href="../../assets/style.css" />
+<link rel="stylesheet" type="text/css" href="../../assets/noJS.css" />
+
+</head>
+<body>
+
+	<div class="main-container" id="main-container">
+		<div class="page-content">
+
+			<div class="page-header">
+							<h1>
+								<i class="icon-th-large" style="color:orange"></i> &nbsp;思维导图
+								<small style="margin-left:770px">
+									
+									<i class="icon-hand-right"></i>
+									&nbsp;&nbsp;思&nbsp;维&nbsp;导&nbsp;图&nbsp;帮&nbsp;你&nbsp;理&nbsp;清&nbsp;思&nbsp;路&nbsp;，&nbsp;开&nbsp;阔&nbsp;大&nbsp;脑&nbsp;思&nbsp;维&nbsp;！
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+			<div class="row">
+<div class="align-left">
+									<div style="margin-left:10px;margin-top:10px">
+
+						<span class="green middle bolder" onclick="xinjian2();"><i class="icon-edit blue bigger-120"></i>&nbsp;新建</span> &nbsp; 
+						<span class="green middle bolder" onclick="save();"><i class="icon-save blue bigger-120"></i>&nbsp;保存</span> &nbsp; 
+						<span class="green middle bolder"  onclick="BrowseFolder();"><i class="icon-folder-open blue bigger-120"></i>&nbsp;打开文件</span> &nbsp; 
+						<input type="file" id="file_input" onchange="open_file();" style="display:none;"  accept=".jm">
+						<span class="green middle bolder" onclick="save_file();"><i class="icon-folder-close blue bigger-120"></i>&nbsp;生成文件</span> &nbsp; 
+						<span class="green middle bolder" onclick="screen_shot();"><i class="icon-camera blue bigger-120"></i>&nbsp;生成图片</span> &nbsp; 
+						<span class="green middle bolder" id="mymindmap"><i class="icon-time blue bigger-120"></i>&nbsp;历史记录</span> &nbsp; 
+						<span class="green middle bolder" id="bijimindmap"><i class="icon-group blue bigger-120"></i>&nbsp;学习记录思维导图</span> &nbsp; 
+				
+						<span class="green middle bolder align-right" id="shezhi" ><i class="icon-cog blue bigger-120"></i>&nbsp;设置主题</span> &nbsp; 
+				               &nbsp;
+				               
+</div>
+
+						
+						</div>
+									
+								</div>
+				<div id="dropzone">
+
+<br>
+					<div id="jsmind_container" style="width:98%;margin-left:10px">
+						
+						
+					</div>
+				</div>
+			</div>
+			<!-- PAGE CONTENT ENDS -->
+		</div>
+		<!-- /.col -->
+	</div>
+	<!-- /.row -->
+
+
+
+	<div id="mm" class="easyui-menu" style="width: 120px; z-index: 99999">
+		<div data-options="iconCls:'icon-ok'" onClick="add_node()">
+			新建标签</div>
+		<div class="menu-sep"></div>
+		<div data-options="iconCls:'icon-edit'" onClick="modify_node()">修改名称</div>
+		<div class="menu-sep"></div>
+		<div data-options="iconCls:'icon-remove'" onclick="delete_node()">删除标签</div>
+		<div class="menu-sep"></div>
+		<div data-options="iconCls:'icon-edit'" onClick="modify_node()">
+			<span>编辑详情</span>
+			<div style="width: 150px;">
+				<div id="kechengstyle">课程样式</div>
+				<div id="zhangjiestyle">章节样式</div>
+				<div id="zsdstyle">知识点样式</div>
+			</div>
+		</div>
+	</div>
+	<div id='zhutiyanse' class='easyui-menu' style='width: 120px; z-index: 99999'>
+	<select
+						 onchange="set_theme(this.value);" >
+							<option value="">主题颜色</option>
+							<option value="primary">primary</option>
+							<option value="warning">warning</option>
+							<option value="danger">danger</option>
+							<option value="success">success</option>
+							<option value="info">info</option>
+							<option value="greensea">greensea</option>
+							<option value="nephrite">nephrite</option>
+							<option value="belizehole">belizehole</option>
+							<option value="wisteria">wisteria</option>
+							<option value="asphalt">asphalt</option>
+							<option value="orange">orange</option>
+							<option value="pumpkin">pumpkin</option>
+							<option value="pomegranate">pomegranate</option>
+							<option value="clouds">clouds</option>
+							<option value="asbestos">asbestos</option>
+					</select>
+					</div>
+	<div id='mymind' class='easyui-menu' style='width: 120px; z-index: 99999'></div>
+	
+	
+	<div id="kecheng" style="width:400px;height:250px">
+
+		<iframe src="kecheng.html" id="showkecheng" marginwidth="0" marginheight="0"
+			frameborder="0" width="100%" scrolling="no" height="100%"></iframe>
+	</div>
+	<div id="addkecheng" style="width:500px;height:250px">
+
+		<iframe id="addkc" src="addkecheng.html" marginwidth="0" marginheight="0"
+			frameborder="0" width="100%" scrolling="no" height="100%"></iframe>
+	</div>
+	<div id="zhangjie" style="width:400px;height:250px">
+
+		<iframe id="showzhangjie" src="zhangjie.html" marginwidth="0" marginheight="0"
+			frameborder="0" width="100%" scrolling="no" height="100%"></iframe>
+	</div>
+	<div id="addzhangjie" style="width:370px;height:250px">
+
+		<iframe id="addzj" src="addzhangjie.html?a=Math.random()"
+			marginwidth="0" marginheight="0" frameborder="0" width="100%"
+			scrolling="no" height="100%"></iframe>
+	</div>
+	<div id="zsd" style="width:690px;height:550px">
+
+		<iframe id="showzsd" src="zsd.html" marginwidth="0" marginheight="0"
+			frameborder="0" width="100%" scrolling="no" height="100%"></iframe>
+	</div>
+	<div id="addzsd" style="width:600px;height:400px">
+
+		<iframe id="addzsd2" src="addzsd.jsp" marginwidth="0"
+			marginheight="0" frameborder="0" width="100%" scrolling="no"
+			height="100%"></iframe>
+	</div>
+<div id="biji" style="width:703px;height:450px">
+
+		<iframe id="showbiji" src="biji.html" marginwidth="0" marginheight="0"
+			frameborder="0" width="100%" scrolling="yes" height="100%"></iframe>
+	</div>
+	<script src="../../assets/jsmind/jquery-1.4.4.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/jsmind/jquery.easyui.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/jsmind/jsmind.js" type="text/javascript"></script>
+	<script src="../../assets/jsmind/jsmind.draggable.js"
+		type="text/javascript"></script>
+
+	<script type="text/javascript"
+		src="../../assets/jsmind/jsmind.screenshot.js"></script>
+	<style type="text/css">
+#jsmind_container {
+	float: left;
+	width: 100%;
+	height: 600px;
+	border: solid 1px #ccc;
+	background: #fff;
+}
+</style>
+<script type="text/javascript">
+$(function(){
+ $.ajax({
+				type : "POST",
+				url : "getWenjian.action",
+				success : function(json) {}
+		})
+
+})
+</script>
+	<script type="text/javascript">
+		$(function() {
+			$("#addkecheng").hide();
+			$("#kecheng").hide();
+			$("#zhangjie").hide();
+			$("#zsd").hide();
+			$("#addzhangjie").hide();
+			$("#addzsd").hide();
+			$("#zhutiyanse").hide();
+			$("#biji").hide();
+			
+			$("#shezhi").live('click', function(e) {
+			e.preventDefault();
+			$('#zhutiyanse').menu('show', { //菜单EasyUI
+				left : e.pageX,
+				top : e.pageY,
+				hideOnUnhover : false
+			});
+		});
+		})
+	</script>
+	<script type="text/javascript">
+		var jm = null;
+		function open_empty() {
+			var options = {
+				container : 'jsmind_container',
+				theme : 'greensea',
+				editable : true
+			}
+			jm = jsMind.show(options);
+			// _jm = jsMind.show(options,mind);
+		}
+		xinjian();
+		
+		function openother() {
+		
+		$.ajax({
+				type : "POST",
+				url : "getmindJson2.action",
+		
+				success : function(json) {
+				
+					if (json.state == 0) {
+						datas=eval('(' + json.datas + ')'); 
+					    $('#mapid').attr("value", json.mapid);
+				        jm.show(datas);
+					}else {
+						$.messager.alert("操作提示", "找不到对应的思维导图！", "info");
+					}
+				}
+			});
+		}
+		function open_ajax(mapid) {
+		$('#mapid').attr("value",mapid);
+		var da={"mapid":mapid};
+		$.ajax({
+				type : "POST",
+				url : "getmindJson.action",
+				data : da,
+				success : function(json) {
+					if (json.state == 0) {
+						datas=eval('(' + json.datas + ')'); 
+					
+				        jm.show(datas);
+					}else {
+						$.messager.alert("操作提示", "找不到对应的思维导图！", "info");
+					}
+				}
+			});
+		}
+function open_ajax2(kcmc) {
+
+		$('#mapid').attr("value",1);
+		var da={"kcmc":kcmc};
+		$.ajax({
+				type : "POST",
+				url : "getbijidata2.action",
+				data : da,
+				success : function(json) {
+					if (json.state == 0) {
+						datas=eval('(' + json.datas + ')'); 
+					
+				        jm.show(datas);
+					}else {
+						$.messager.alert("操作提示", "找不到对应的思维导图！", "info");
+					}
+				}
+			});
+		}
+
+		function fileChange() {
+			open_file();
+		}
+		function xinjian() {
+			var mind_url = 'newMindMap.action';
+			jsMind.util.ajax.get(mind_url, function(mind) {
+				$('#mapid').attr("value", mind.mapid);
+                                 datas=eval('(' + mind.datas + ')');
+				jm.show(datas);
+			});
+		}
+		function xinjian2() {
+			var mind_url = 'newMindMap2.action';
+			jsMind.util.ajax.get(mind_url, function(mind) {
+				$('#mapid').attr("value", mind.mapid);
+                                 datas=eval('(' + mind.datas + ')');
+				jm.show(datas);
+			});
+		}
+		function screen_shot() { //下载图片
+			jm.shoot();
+		}
+		function show_data() {
+
+			var mind_data = jm.get_data();
+
+			var mind_string = jsMind.util.json.json2string(mind_data);
+		return mind_string;
+			//prompt_info(mind_string);
+		}
+        //重新给mapid赋值；
+        function mapid(mapid){
+        $('#mapid').attr("value", mapid);
+        }
+		function save_file() {
+			var mind_data = jm.get_data();
+			var mind_name = mind_data.meta.name;
+			var mind_str = jsMind.util.json.json2string(mind_data);
+			jsMind.util.file.save(mind_str, 'text/jsmind', mind_name + '.jm');
+		}
+
+		function open_file() {
+			var file_input = document.getElementById('file_input');
+			var files = file_input.files;
+			if (files.length > 0) {
+				var file_data = files[0];
+				jsMind.util.file.read(file_data, function(jsmind_data,
+						jsmind_name) {
+					var mind = jsMind.util.json.string2json(jsmind_data);
+					if (!!mind) {
+						jm.show(mind);
+					} else {
+						prompt_info('can not open this file as mindmap');
+					}
+				});
+			} else {
+				prompt_info('please choose a file first')
+			}
+		}
+		function get_selected_nodeid() {
+			var selected_node = jm.get_selected_node();
+
+			if (!!selected_node) {
+				return selected_node.id;
+			} else {
+				return null;
+			}
+		}
+		function expand_all() {
+
+			jm.expand_all();
+		}
+
+		function expand_to_level2() {
+			jm.expand_to_depth(1);
+		}
+
+		function expand_to_level3() {
+			jm.expand_to_depth(3);
+		}
+		function modify_node() {
+		
+			$.messager.prompt('编辑标签', '请输入新的标签名', function(r) {
+				if (r) {
+					var selected_id = get_selected_nodeid();
+					jm.enable_edit();
+					jm.update_node(selected_id, r);
+					jm.disable_edit();
+			var mind_data = jm.get_data();
+			var mind_string = jsMind.util.json.json2string(mind_data);
+					var da = {
+						"mapid" : $("#mapid").val(),
+						"jsondata" : mind_string,
+						
+					};
+					$.ajax({
+						type : "POST",
+						url : "savemap.action",
+						data : da,
+						success : function(json) {
+							if (json.state == 0) {
+								$('#mapid').attr("value", json.mapid);
+							} else {
+								$.messager.alert("操作提示", "操作失败！", "error");
+							}
+						}
+					});
+				}
+			});
+		}
+		function delete_node() {
+			$.messager.defaults = {
+				ok : "是",
+				cancel : "否"
+			};
+
+			$.messager.confirm("操作提示", "您确定要执行操作吗？", function(r) {
+				if (r) {
+					jm.enable_edit();
+					var selected_node = jm.get_selected_node();
+					jm.remove_node(selected_node);
+					
+					var mind_data = jm.get_data();
+			        var mind_string = jsMind.util.json.json2string(mind_data);
+					var da = {
+						"mapid" : $("#mapid").val(),
+						"jsondata" : mind_string,
+						
+					};
+					$.ajax({
+						type : "POST",
+						url : "savemap.action",
+						data : da,
+						success : function(json) {
+							if (json.state == 0) {
+							$('#mapid').attr("value", json.mapid);
+							} else {
+								$.messager.alert("操作提示", "操作失败！", "error");
+							}
+						}
+					});
+					
+				} else {
+					alert("否");
+				}
+			});
+		}
+
+		function add_node() {
+			$.messager.defaults = {
+				ok : "是",
+				cancel : "否"
+			};
+			$.messager.prompt('新增子级标签', '请输入标签名', function(r) {
+				if (r) {
+					var nodeid = jsMind.util.uuid.newid();
+					var topic = r;
+					jm.enable_edit();
+					//扩展方法， right 将子节点增加到右侧， left 将子节点增加到左侧，默认右侧
+					var node = jm.add_node(jm.get_selected_node(), nodeid,
+							topic, null, "right");
+					jm.disable_edit();
+					var mind_data = jm.get_data();
+			        var mind_string = jsMind.util.json.json2string(mind_data);
+					var da = {
+						"mapid" : $("#mapid").val(),
+						"jsondata" : mind_string
+						
+					};
+					$.ajax({
+						type : "POST",
+						url : "savemap.action",
+						data : da,
+						success : function(json) {
+							if (json.state == 0) {
+								$('#mapid').attr("value", json.mapid);
+							} else {
+								$.messager.alert("操作提示", "操作失败！", "error");
+							}
+						}
+					});
+				}
+			});
+		}
+		function right() {
+			var e = window.event;
+			if (e.button == "2") {
+				console.debug("右键");
+			}
+		}
+		function set_theme(theme_name) {
+
+			jm.set_theme(theme_name);
+		}
+		function show_selected() {
+			var selected_node = jm.get_selected_node();
+			if (!!selected_node) {
+				return selected_node.data.isreadonly;
+			} else {
+				console.debug("nothing");
+			}
+		}
+
+		function toggle_node() {
+			var selected_id = get_selected_nodeid();
+			if (!selected_id) {
+				alert('请先选择一个节点');
+			}
+
+			jm.toggle_node(selected_id);
+		}
+
+		function zhangjie() {
+			$.messager.defaults = {
+				ok : "是",
+				cancel : "否"
+			};
+			$.messager.prompt('章节样式', '请输入章节描述', function(r) {
+				if (r) {
+					var selected_id = get_selected_nodeid();
+					alert(r);
+				}
+			});
+		}
+
+		$("#kechengstyle").live('click', function(e) {
+$('#addkc').attr('src', $('#addkc').attr('src'));
+			e.preventDefault();
+			$('#addkecheng').menu();
+			$('#addkecheng').menu('show', { //菜单EasyUI
+				left : 450,
+				top : 200,
+				hideOnUnhover : false
+			});
+		});
+		$("#zhangjiestyle").live('click', function(e) {
+
+			e.preventDefault();
+			$('#addzj').attr('src', $('#addzj').attr('src'));
+			$('#addzhangjie').menu();
+			$('#addzhangjie').menu('show', { //菜单EasyUI
+				left : 450,
+				top : 200,
+
+				hideOnUnhover : false
+			});
+			return false;
+		})
+
+		$("#zsdstyle").live('click', function(e) {
+           
+			e.preventDefault();
+			$('#addzsd2').attr('src', $('#addzsd2').attr('src'));
+			$('#addzsd').menu();
+			$('#addzsd').menu('show', { //菜单EasyUI
+				left : 450,
+				top : 200,
+
+				hideOnUnhover : false
+			});
+			return false;
+		})
+
+		open_empty();//加载JSMind
+		$("jmnode").live('contextmenu', function(e) {
+			e.preventDefault();
+			$('#mm').menu('show', { //菜单EasyUI
+				left : e.pageX,
+				top : e.pageY,
+				hideOnUnhover : false
+			});
+		});
+
+		$("jmnode").live('click', function(e) {
+			var selected_id = get_selected_nodeid();
+			$('#nodeid').attr("value", selected_id);
+			var da = {
+				"mapid" : $("#mapid").val(),
+				"nodeid" : selected_id
+			};
+			$.ajax({
+				type : "POST",
+				url : "checkNode.action",
+				data : da,
+				success : function(json) {
+					if (json.type == 1) {
+					$('#showkecheng').attr('src', $('#showkecheng').attr('src'));
+						$('#kecheng').menu();
+						$('#kecheng').menu('show', { //菜单EasyUI
+							left : e.pageX,
+							top : e.pageY - 250,
+							hideOnUnhover : false
+						});
+					} else if (json.type == 2) {
+					$('#showzhangjie').attr('src', $('#showzhangjie').attr('src'));
+						$('#zhangjie').menu();
+						$('#zhangjie').menu('show', { //菜单EasyUI
+							left : e.pageX,
+							top : e.pageY - 250,
+							hideOnUnhover : false
+						});
+					} else if (json.type == 3) {
+					$('#showzsd').attr('src', $('#showzsd').attr('src'));
+						$('#zsd').menu();
+						$('#zsd').menu('show', { //菜单EasyUI
+							left : e.pageX,
+							top : e.pageY - 250,
+							hideOnUnhover : false
+						});
+					} 
+				        else if (json.type == 4) {
+					$('#showbiji').attr('src', $('#showbiji').attr('src'));
+						$('#biji').menu();
+						$('#biji').menu('show', { //菜单EasyUI
+							left : e.pageX,
+							top : e.pageY - 250,
+							hideOnUnhover : false
+						});
+					} 
+                                        else {
+						$.messager.alert("操作提示", "暂无相关介绍！", "info");
+					}
+				}
+			});
+
+		});
+		
+		//保存思维导图
+		function save() {
+		    var mapid=$("#mapid").val();
+			var mind_data = jm.get_data();
+
+			var mind_string = jsMind.util.json.json2string(mind_data);
+			var name = "";
+			$.messager.prompt('保存思维导图', '请输入思维导图名称', function(r) {
+				if (r) {
+
+					name = r;
+				
+					var da = {
+						"mapid" : $("#mapid").val(),
+						"jsondata" : mind_string,
+						"name" : name
+					};
+					$.ajax({
+						type : "POST",
+						url : "savemap.action",
+						data : da,
+						success : function(json) {
+							if (json.state == 0) {
+								$.messager.alert("操作提示", "保存成功！", "info");
+								$('#mapid').attr("value", json.mapid);
+							} else {
+								$.messager.alert("操作提示", "操作失败！", "error");
+							}
+						}
+					});
+				}
+			});
+
+		}
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			
+		$('#mymindmap').live('click',function(e){
+		e.preventDefault();
+		$.ajax({
+		type : "POST",
+		url : "getmap.action",
+	
+		success : function(json) {
+			if (json.state == 1) {
+				$.messager.alert("操作提示",
+						"您还尚未创建自己的思维导图！",
+						"info");
+			} else {
+			
+			$('#mymind').html("");
+				$.each(json.list,function(i,result){
+				
+			item = "<div style='margin-left:16px;margin-top:5px;margin-bottom:5px;margin-right:5px;' onclick='open_ajax("+result['id']+");'>"
+					+ result['name']
+					+ "</div>";
+			$('#mymind').append(item);
+			});
+		
+																				
+                $('#mymind').menu('show', { //菜单EasyUI
+				left : e.pageX,
+				top : e.pageY,
+				hideOnUnhover : false
+			});
+																}
+															}
+														});
+											})
+		})
+	</script>
+
+<script type="text/javascript">
+		$(function() {
+			
+		$('#bijimindmap').live('click',function(e){
+		e.preventDefault();
+		$.ajax({
+		type : "POST",
+		url : "getkcbiji.action",
+	
+		success : function(json) {
+			if (json.state == 1) {
+				$.messager.alert("操作提示",
+						"您还尚未创建自己的思维导图！",
+						"info");
+			} else {
+			
+			$('#mymind').html("");
+				$.each(json.list,function(i,result){
+				
+			item = "<div style='margin-left:16px;margin-top:5px;margin-bottom:5px;margin-right:5px;' onclick='open_ajax2("+ result['nodeid']+");'>"
+					+ result['nodename']
+					+ "</div>";
+			$('#mymind').append(item);
+			});
+		
+																				
+                $('#mymind').menu('show', { //菜单EasyUI
+				left : e.pageX,
+				top : e.pageY,
+				hideOnUnhover : false
+			});
+																}
+															}
+														});
+											})
+		})
+	</script>
+	<script type="text/javascript">
+	function BrowseFolder(){
+   $("#file_input").click();
+   
+               
+}
+	</script>
+	<input id="mapid" type="text" value="" hidden />
+<input id="nodeid" type="text" value="" hidden />
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+下载的功能此项目，暂时没有用。
+但是代码已经实现对应的action是pdf2swfAction.action在xx.xuexi.action包中的Pdf2SwfDownLoadAction.java文件中。

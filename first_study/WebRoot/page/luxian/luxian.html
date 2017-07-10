@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>IT职业学习规划-慕课网学习计划</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+
+<meta http-equiv="Cache-Control" content="no-transform " />
+
+<meta name="Keywords" content="" />
+
+<meta name="Description" content="慕课网学习计划，精心打造适合你的IT学习计划，包含求职路线、加薪利器，从零起点培养WEB前端工程师、JAVA工程师、Andorid工程师、PHP工程师，并且为有一定基础的工程师提供各级别实战指导，为晋级加薪提供帮助！"/>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+
+<script type="text/javascript">
+jQuery.ajax({ 
+           type: "POST", 
+           url: "getluxian.action", 
+           dataType:'json', 
+           success: function(msg){ 
+               var title = ""; 
+               jQuery.each(msg.list,function(key,value){ 
+                    title=title+"<li id='program_32'><a href='profile.jsp?fangxiang="+value.kecheng+"&id="+value.id+"&miaoshu="+value.miaoshu+"&picurl="+value.picurl+"' title="+value.kecheng+"><div class='course-list-img'>"+
+"<img width='240' height='180' alt="+value.kecheng+" src="+value.picurl+"></div><h5><span>"+value.kecheng+"</span>"+
+"</h5><div class='tips'><span class='l'>"+value.miaoshu+"</span></div></a></li>"
+               }) 
+               $("#content").html(title);
+               
+           } 
+    });
+</script>
+
+<link rel="stylesheet" href="luxian.css" type="text/css" />
+</head>
+<body  id="List_courseId">
+
+
+
+<div id="main">
+
+    <div class="program-wrap clearfix">
+        <div class="program-main">
+            <div class="course-list job-route-list">
+                <ul class="clearfix" id="content">
+               
+                        
+                                    </ul>
+            </div>
+           
+            
+        </div><!--program-main end-->
+    </div><!--wrap end-->
+
+</div>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

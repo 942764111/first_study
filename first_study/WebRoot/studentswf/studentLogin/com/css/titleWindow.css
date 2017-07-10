@@ -1,0 +1,10 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+mx|TitleWindow {
+	close-button-disabled-skin:ClassReference(null);
+	close-button-down-skin:ClassReference(null);
+	close-button-over-skin:ClassReference(null);
+	close-button-up-skin:ClassReference(null);
+}

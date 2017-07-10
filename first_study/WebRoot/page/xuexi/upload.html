@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>文件上传控件GooUploader</title>
+<link rel="stylesheet" type="text/css" href="../../codebase/GooUploader.css"/>
+<link rel="stylesheet" type="text/css" href="../../js/ui/themes/default/easyui.css"/>
+<script  type="text/javascript" src="../../codebase/jquery-1.3.2.min.js"></script>
+<script  type="text/javascript" src="../../codebase/GooUploader.js"></script>
+<script type="text/javascript" src="../../codebase/swfupload/swfupload.js"></script>
+
+
+
+
+<script type="text/javascript">
+var demo1,demo2;
+var  post_params = {session_id:"f1423rwe543t4wrtwerwe"};
+var property2={
+	width:300,
+	height:300,
+	multiple:true,
+	file_post_name : "Filedata", 
+    //file_types:"*.jpg;*.gif",
+    //file_types_description: "Web Image Files",
+    post_params:post_params,
+    btn_add_text:"添加",
+    btn_up_text:"上传",
+    btn_cancel_text:"放弃",
+    btn_clean_text:"清空",
+    op_del_text:"单项删除",
+    op_up_text:"单项上传",
+    op_fail_text:"上传失败",
+    op_ok_text:"上传成功",
+    op_no_text:"取消上传",
+	upload_url:"scwjUpload.action"
+};
+var property1={
+	multiple:false,
+    //file_types:"*.jpg;*.gif",
+    //file_types_description: "Web Image Files",
+    post_params:post_params,
+    btn_add_text:"添加",
+    op_del_text:"单项删除",
+    op_up_text:"单项上传",
+    op_fail_text:"上传失败",
+    op_ok_text:"上传成功",
+    op_no_text:"取消上传",
+	upload_url:"UploadFileServlet"
+};
+$(document).ready(function(){
+  demo2=$.createGooUploader($("#demo2"),property2)
+  demo1=$.createGooUploader($("#demo1"),property1);
+  //demo1.$swfUpload.setPostParams(post_params);
+});
+</script>
+<style type="text/css">
+.demo{margin:5px 0 0 0;}
+.button {
+	
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+
+/* white */
+.white {
+	color: #606060;
+	border: solid 1px #b7b7b7;
+	background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+	background: -moz-linear-gradient(top,  #fff,  #ededed);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+}
+.white:hover {
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+	background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+.white:active {
+	color: #999;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+	background: -moz-linear-gradient(top,  #ededed,  #fff);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="demo2"></div>
+<br/>
+<div class="demo">
+		<a href="datagrid.html" class="button white" style="margin-left:450px;margin-top:5px">下一步</a> 
+		
+</div>
+<div>
+<table id="tt"></table>
+
+</div>
+</body>
+</html>

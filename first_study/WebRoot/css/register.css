@@ -1,0 +1,35 @@
+.formtips{width: 200px;margin:2px;padding:2px;}
+.onWaiting{
+	background: url(../images/signup-loading.gif) no-repeat 0 center;
+	padding-left:25px;
+}
+.onError{
+    background:#FFE0E9 url(../images/validateFalse.gif) no-repeat 0 center;
+	padding-left:25px;
+}
+.onSuccess{
+    background:#E9FBEB url(../images/validateOK.gif) no-repeat 0 center;
+	padding-left:25px;
+}
+#sanjiao1{
+    BACKGROUND:url(../js/ui/themes/icons/sanjiao.png);
+    background-repeat: no-repeat;
+    background-position:center;
+   
+}
+
+#login_bg {
+	BACKGROUND-IMAGE: url(../img/index/picture/3.jpg);
+	background-repeat: repeat-x;
+	vertical-align: bottom;
+	text-align: right;
+	
+}
+#logo1 {
+	
+	background-repeat: no-repeat;
+	background-position: left top;
+	height:90px;
+	width:100%;
+	background:url(../img/index/picture/jointop.jpg) no-repeat;
+}

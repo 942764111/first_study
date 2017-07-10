@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <welcome-file-list>
+    <welcome-file>login1.jsp</welcome-file>
+  </welcome-file-list>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error/error404.html</location>
+  </error-page>
+  <listener>
+    <listener-class>
+	  	xx.servlet.web.OnlineListener
+	  </listener-class>
+  </listener>
+ <listener>
+		<listener-class>
+		  cn.mina.WebServer
+		</listener-class>
+	</listener>
+   <listener>
+    <listener-class>com.easysearching.web.listener.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class> 
+         org.springframework.web.context.ContextLoaderListener          
+      </listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/applicationContext.xml</param-value>
+  </context-param>
+  <filter>
+    <filter-name>filterJsessionid</filter-name>
+    <filter-class>xx.servlet.web.DisableUrlSessionFilter</filter-class>
+  </filter>
+  
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>xx.servlet.web.MyStrutsFilterDispatcher</filter-class>
+    <init-param>
+      <param-name>actionPackages</param-name>
+      <param-value>*</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>filterJsessionid</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+  
+  
+  
+  <servlet>
+    <servlet-name>FileUploadUtil</servlet-name>
+    <servlet-class>com.easysearching.web.util.FileUploadUtil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileUploadUtil</servlet-name>
+    <url-pattern>/FileUpload.html</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FileDownloadUtil</servlet-name>
+    <servlet-class>com.easysearching.web.util.FileDownloadUtil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileDownloadUtil</servlet-name>
+    <url-pattern>/FileDownload.html</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SearchAction</servlet-name>
+    <servlet-class>com.easysearching.action.SearchAction</servlet-class>
+  </servlet>
+   <servlet>
+     <servlet-name>SeniorSearchAction</servlet-name>
+    <servlet-class>com.easysearching.action.SeniorSearchAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>uploadPic</servlet-name>
+    <servlet-class>xx.mindMap.action.uploadPic</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FileDownLoad</servlet-name>
+    <servlet-class>com.easysearching.web.util.FileDownLoad</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpLoadPic</servlet-name>
+    <servlet-class>xx.spdh.action.UpLoadPic</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SearchAction2</servlet-name>
+    <servlet-class>com.easysearching.action.SearchAction2</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SeniorSearchAction2</servlet-name>
+    <servlet-class>com.easysearching.action.SeniorSearchAction2</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>SearchAction</servlet-name>
+    <url-pattern>/Search.html</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>SeniorSearchAction</servlet-name>
+    <url-pattern>/SeniorSearchAction.html</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>uploadPic</servlet-name>
+    <url-pattern>/uploadPic.html</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileDownLoad</servlet-name>
+    <url-pattern>/DownLoadFile.html</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpLoadPic</servlet-name>
+    <url-pattern>/UpLoadPic.html</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchAction2</servlet-name>
+    <url-pattern>/Search2.html</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SeniorSearchAction2</servlet-name>
+    <url-pattern>/SeniorSearchAction2.html</url-pattern>
+  </servlet-mapping>
+ 
+</web-app>

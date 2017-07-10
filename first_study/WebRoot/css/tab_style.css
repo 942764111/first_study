@@ -1,0 +1,62 @@
+@charset "utf-8";
+/*列表类页面样式 */
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.STYLE1 {font-size: 12px}
+.STYLE3 {font-size: 12px; font-weight: bold; }
+.STYLE4 {
+	color: #03515d;
+	font-size: 12px;
+}
+
+.STYLE9 {
+	color: blue;
+	font-size: 12px;
+	font-weight: bold;
+}
+a:link {
+	color: #03515D;
+	text-decoration: none;
+}
+a:visited {
+	color: #0000ff;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+.listing th{
+background:url("../images/tab/bg.gif");
+background-repeat:repeat-x;}
+
+table.listing .bg td {
+	background: #fCfCee
+
+	}
+table.listing .white td {
+	background:#fff;
+	}	
+
+table.listing .bg1 td {
+	background: #fff
+	}
+#opbar{
+	clear:both;
+	width:200px;
+	float:right;
+	margin-top:5px;
+	}
+#opbar_left{
+	margin-top:5px;
+	width:500px;
+	float:left;
+	clear:both;
+	}

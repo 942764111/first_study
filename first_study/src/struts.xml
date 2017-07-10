@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.multipart.maxSize" value="300000000" /><!-- 300M -->
+	<constant name="struts.multipart.saveDir" value="c:/temp" />
+	<constant name="struts.serve.static" value="true" />
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.i18n.reload" value="true" />
+	<constant name="struts.configuration.xml.reload" value="true" />
+	
+	<constant name="struts.convention.default.parent.package" value="default-package" />
+	<constant name="struts.convention.package.locators" value="action" />
+	
+	<package name="default-package" extends="convention-default">
+	
+		<result-types>
+            <result-type name="json" class="com.googlecode.jsonplugin.JSONResult"/>
+        </result-types>
+	</package>
+	
+	<package name="login-default" extends="default-package">
+	
+          <result-types>
+            <result-type name="json" class="com.googlecode.jsonplugin.JSONResult"/>
+        </result-types>
+          <interceptors>
+               <interceptor name="json" class="com.googlecode.jsonplugin.JSONInterceptor"/>
+               <interceptor name="logininterceptor" class="xx.quanxian.interceptor.LoginInterceptor"></interceptor>
+               <interceptor-stack name="logindefault">
+                    <interceptor-ref name="defaultStack"></interceptor-ref>
+                    <interceptor-ref name="logininterceptor"></interceptor-ref>
+               </interceptor-stack>
+          </interceptors>
+          <!--设置默认拦截器栈 （必须打开才起作用）-->
+          <default-interceptor-ref name="logindefault"></default-interceptor-ref> 
+          
+           <global-results>
+             <result name="login">/error/autoLoggedOut.html</result>
+             <result name="error">/error/error500.html</result>
+             <result name="none">/error/error403.html</result>
+             <!--  <result name="wait">/wait.jsp</result>
+             
+             <result name="input">login.jsp</result>-->
+          </global-results>
+	</package>
+  
+	<package name="default" extends="login-default">
+    
+		<interceptors>
+			<interceptor name="myinterceptor" class="xx.quanxian.interceptor.MyInterceptor"></interceptor>
+			<interceptor-stack name="mydefault">
+                 <interceptor-ref name="logindefault"></interceptor-ref>
+               <!--   去掉了权限拦截器  -->
+			     <interceptor-ref name="myinterceptor"></interceptor-ref>
+            </interceptor-stack>
+		</interceptors>
+		<!-- 设置默认拦截器 （必须打开才起作用）-->
+		<default-interceptor-ref name="mydefault"></default-interceptor-ref> 
+	</package>
+     
+	<package name="index" namespace="" extends="default-package">
+	   <default-action-ref name="notFound" />
+	   <action name="notFound">
+	    <result>/error/error404.html</result>
+	   </action>
+		<action name="imageNews">
+			<result>/news/imagenews.jsp</result>		
+		</action>
+	</package>
+	
+	<package name="notFoundAction" extends="struts-default">
+	   <default-action-ref name="notFound" />
+	   <action name="notFound">
+	    <result>/error/error404.html</result>
+	   </action>
+	</package>
+	
+</struts>

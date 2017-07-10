@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>用户信息页面 - Bootstrap后台管理系统模版Ace下载</title>
+		<meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
+		<meta name="description" content="JS代码网提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+<link rel="stylesheet" href="http://static.mukewang.com/static/css/??base.css,common/common-less.css,course/course_program-less.css,poplogin-less.css?v=1470984066" type="text/css" />
+		<link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="jquery.scrollbar.css" type="text/css" />
+<link rel="stylesheet" href="luxian.css" type="text/css" />
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="../../assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<link rel="stylesheet" href="../../assets/css/jquery-ui-1.10.3.custom.min.css" />
+		<link rel="stylesheet" href="../../assets/css/jquery.gritter.css" />
+		<link rel="stylesheet" href="../../assets/css/select2.css" />
+		<link rel="stylesheet" href="../../assets/css/bootstrap-editable.css" />
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="../../assets/css/ace.min.css" />
+		<link rel="stylesheet" href="../../assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="../../assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="js/reveal.css">
+	<script type="text/javascript" src="js/jquery-1.6.min.js"></script>
+	<script type="text/javascript" src="js/jquery.reveal.js"></script>
+
+<script type="text/javascript">
+function getzsd(zhang){
+
+$.ajax({
+				type : "POST",
+				url : "getzsd.action?zcid="+zhang,
+			
+				success : function(json) {
+			
+				if(json.state=='0'){
+				var ht="";
+				$.each(json.list,function(index,content){
+				
+			    ht=ht+" <a href='ziliao.jsp?zsdid='+content.zsdid class='step-anchor  '><b>"+content.zsdmc+"</b><i class='step-arr'></i></a>&nbsp; &nbsp;";
+				})
+				  
+				  $("#zsd").html(ht);
+				   
+				   }
+				}
+				
+			});
+}
+</script>
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="../../assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="../../assets/js/html5shiv.js"></script>
+		<script src="../../assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		
+<br>
+		<div class="main-container" id="main-container">
+			
+
+			<div class="main-container-inner">
+				
+
+				<div class="main-content">
+					
+
+					<div class="page-content">
+						
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								
+
+								<div>
+									<div id="user-profile-1" class="user-profile row" style="flaot:left">
+										<div class="col-xs-12 col-sm-3 center">
+											<div>
+												<span class="profile-picture">
+													<img id="avatar" class="editable img-responsive" alt="Alex's Avatar" src="js/w7.jpg" />
+												</span>
+
+												<div class="space-4"></div>
+
+												<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+													<div class="inline position-relative">
+														<a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
+															<i class="icon-circle light-green middle"></i>
+															
+															<span class="white">路径介绍</span>
+														</a>
+
+													
+													</div>
+												</div>
+											</div>
+<hr>
+											<div class="space-6"></div>
+
+											<div class="profile-contact-info">
+		
+										 <span class="l" style="margin-left:30px;width:230px;text-align:left">想成为C/C++攻城狮？不知道该如何入门？表捉急，本计划从最基本的C/C++语言基础、各种常用工具到C/C++基础以及框架应用，迈出成为优秀的C/C++工程师的重要一步。</span>         
+
+												<div class="space-6"></div>
+
+												
+											</div>
+
+								
+										</div>
+
+										
+									</div>
+									
+									<div id="main" style="float:right">
+
+
+    <div class="g-layer g-layer-left clearfix " style="padding-right:150px">
+  
+    
+    <div class="layer-container">
+        <div class="plan-main">
+            <div class="plan-top">
+                <h2>C/C++开发工程师</h2>
+                <div class="plan-meta">
+                    <div class="r">
+                                        <div class="small-share r">
+                        
+                    </div>
+                    </div>
+                    <span class="meta meta-tags">
+                                                	<span class="g-tag">服务端</span>
+                                                    <span class="g-tag">求职</span>
+                                                    <span class="g-tag">实战</span>
+                                            </span>
+
+                </div>
+            </div>
+                            
+                <div class="plan-step-wrap js-route-panel" id="js-route-panel">
+        <ul class="plan-step clearfix">
+            <li class="step-item clearfix
+                         step-first
+                ">
+            <i class="line"></i>
+            <i class="dot"></i>
+            <span class="hd l">C语言程序设计</span>
+            <i class="v-line l"></i>
+            <div class="bd l clearfix">
+                                        <!-- 选中open -->
+                <a href="javascript:;" class="step-anchor  "  onclick="getzsd(1000001);" data-reveal-id="myModal">
+                    <b>C程序设计概述</b>
+                                        <i class="step-arr"></i>
+                                       
+                </a>
+                            <!-- 选中open -->
+                <a href="javascript:;" class="step-anchor  " onclick="getzsd(1000002);"data-reveal-id="myModal">
+                    <b>C语言基础</b>
+                                        <i class="step-arr"></i>
+                                       
+                </a>
+                           
+                <a href="javascript:;" class="step-anchor  " onclick="getzsd(1000003);" data-reveal-id="myModal" >
+                    <b>表达式和语句</b>
+                                        <i class="step-arr"></i>
+                                       
+                </a>
+                 <a href="javascript:;" class="step-anchor  " onclick="getzsd(1000005);"data-reveal-id="myModal">
+                    <b>函数</b>
+                                        <i class="step-arr"></i>
+                                       
+                </a>
+                        <a href="javascript:;" class="step-anchor  " onclick="getzsd(1000006);"data-reveal-id="myModal">
+                    <b>预处理</b>
+                                        <i class="step-arr"></i>
+                                       
+                </a>  
+                <a href="javascript:;" class="step-anchor  " onclick="getzsd(1000008);" data-reveal-id="myModal">
+                    <b>指针</b>
+                           <i class="step-arr"></i>            
+                </a>
+                 <a href="javascript:;" class="step-anchor  " onclick="getzsd(10000011);"data-reveal-id="myModal">
+                    <b>文件</b>
+                                       
+                </a>
+                                    </div>
+            
+        </li>
+      
+            <li class="step-item clearfix
+                        ">
+            <i class="line"></i>
+            <i class="dot"></i>
+            <span class="hd l">Linux C语言编程基本原理与实践</span>
+            <i class="v-line l"></i>
+            <div class="bd l clearfix">
+                                        <!-- 选中open -->
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>重识C语言</b>
+                                        <i class="step-arr"></i>
+                                       
+                </a>
+                            <!-- 选中open -->
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>开发环境与配置</b>
+                                        <i class="step-arr"></i>
+                                       
+                </a>
+                            <!-- 选中open -->
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>Linux下第一个C程序</b>
+                                        <i class="step-arr"></i>
+                                       
+                </a>
+                            <!-- 选中open -->
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>多文件操作</b>
+                            <i class="step-arr"></i>            
+                </a>
+                 <a href="javascript:;" class="step-anchor  ">
+                    <b>makeFile的编写与使用</b>
+                            <i class="step-arr"></i>            
+                </a>
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>main函数详解</b>
+                         <i class="step-arr"></i>               
+                </a>
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>输入输出流和错误流</b>
+                         <i class="step-arr"></i>               
+                </a>
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>管道原理及应用</b>
+                         <i class="step-arr"></i>               
+                </a>
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>打造实用C语言小程序</b>             
+                </a>
+                                    </div>
+           
+        </li>
+            
+            
+            <li class="step-item clearfix
+                ">
+            <i class="line"></i>
+            <i class="dot"></i>
+            <span class="hd l">C++从入门到精通</span>
+            <i class="v-line l"></i>
+            <div class="bd l clearfix">
+                                        <!-- 选中open -->
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>C++简介</b>
+                                        <i class="step-arr"></i>
+                                        
+                </a>
+                            <!-- 选中open -->
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>C++ IDE环境搭建</b>
+                           <i class="step-arr"></i>             
+                </a>
+                 <a href="javascript:;" class="step-anchor  ">
+                    <b>C++之初体验</b>
+                           <i class="step-arr"></i>             
+                </a>
+                 <a href="javascript:;" class="step-anchor  ">
+                    <b>C++语言新特性</b>
+                           <i class="step-arr"></i>             
+                </a>
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>综合练习</b>            
+                </a>
+                                    </div>
+            
+        </li>
+        
+        
+                 <li class="step-item clearfix
+                         step-last
+                ">
+            <i class="line"></i>
+            <i class="dot"></i>
+            <span class="hd l">C++实战</span>
+            <i class="v-line l"></i>
+            <div class="bd l clearfix">
+                                        <!-- 选中open -->
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>概述</b>
+                                        <i class="step-arr"></i>
+                                        
+                </a>
+                            <!-- 选中open -->
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>对象成员与对象数组</b>
+                           <i class="step-arr"></i>             
+                </a>
+                 <a href="javascript:;" class="step-anchor  ">
+                    <b>深拷贝与浅拷贝</b>
+                           <i class="step-arr"></i>             
+                </a>
+                 <a href="javascript:;" class="step-anchor  ">
+                    <b>对象指针</b>
+                           <i class="step-arr"></i>             
+                </a>
+                <a href="javascript:;" class="step-anchor  ">
+                    <b>const再现江湖</b>
+                    <i class="step-arr"></i>             
+                </a>
+                 <a href="javascript:;" class="step-anchor  ">
+                    <b>学以致用</b>             
+                </a>
+                                    </div>
+            
+        </li>
+        </ul>
+    </div>            
+            <!-- 学习报告 -->
+            
+                        <!-- 学习报告 E-->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+								
+
+								
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+								</div>
+
+<div id="myModal" class="reveal-modal">
+		
+		<h3>选择知识点</h3>
+		<br>
+            <div class="bd l clearfix" id="zsd">
+                                        <!-- 选中open -->
+               
+               
+                                    </div>
+      
+		</div>
+
+
+
+
+
+
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+
+				
+			</div><!-- /.main-container-inner -->
+
+
+
+  
+
+
+<div style="display: none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff0cfcccd7b1393990c78efdeebff3968' type='text/javascript'%3E%3C/script%3E"));
+(function (d) {
+window.bd_cpro_rtid="rHT4P1c";
+var s = d.createElement("script");s.type = "text/javascript";s.async = true;s.src = location.protocol + "//cpro.baidu.com/cpro/ui/rt.js";
+var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
+})(document);
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</div>
+	
+	</body>
+</html>

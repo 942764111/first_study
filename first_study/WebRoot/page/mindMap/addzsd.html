@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>机构树菜单树 - Bootstrap后台管理系统模版Ace下载</title>
+		<meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
+		<meta name="description" content="JS代码网提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+
+		<link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../assets/css/font-awesome.min.css" />
+
+
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="../../assets/css/ace.min.css" />
+		<link rel="stylesheet" href="../../assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="../../assets/css/ace-skins.min.css" />
+
+ <script src="../../assets/tree/jquery-1.11.3.min.js"></script>
+
+		<script type="text/javascript">
+		$(function(){
+		alert(1);
+		$.ajax({
+				type : "POST",
+				url : "getWenjian.action",
+				success : function(json) {
+				var data=json.rows;
+					$.each(data,function(i,result){
+				
+			item = " <option value='blueberry' data-section='"+result['key']+"'>"+result['name']+"</option>";
+			alert(item);
+			$('#test-select').append(item);
+			
+		})
+		jQuery.getScript("../../assets/tree/jquery.tree-multiselect.js",function(){});
+		}
+		})
+		});
+		</script>
+		
+	 <link rel="stylesheet" href="../../assets/tree/jquery.tree-multiselect.min.css">
+	
+
+		<script src="../../assets/js/ace-extra.min.js"></script>
+     <script src="../../assets/tree/jquery-ui.min.js"></script>
+     <script src="../../assets/tree/jquery.tree-multiselect.js"></script>
+	</head>
+
+	<body>
+		
+		<div class="main-container" id="main-container">
+			
+
+			<div class="main-container-inner">
+
+				<div class="main-content">
+					
+					<div class="page-content">
+						
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="widget-box">
+											<div class="widget-header header-color-blue2">
+												<h4 class="lighter smaller">选择文件</h4>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main padding-8">
+													<select id="test-select" multiple="multiple">
+      <option value='blueberry' data-section='不是'>哈哈</option>
+     
+    </select>
+
+    <script type="text/javascript">
+      $("#test-select").treeMultiselect({ enableSelectAll: true, sortable: true });
+    </script>
+												
+	
+												</div>
+											</div>
+										</div>
+									</div>
+
+									
+								</div>
+
+							  <button id= "submit-button" type ="button" class= "btn btn-sm btn-primary pull-right">  
+                           <i class ="ace-icon fa fa-check"></i >  
+                          Submit  
+                       </button> 	
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+
+				
+			</div><!-- /.main-container-inner -->
+
+		</div><!-- /.main-container -->
+	<script src="../../assets/jsmind/jquery-1.4.4.min.js" type="text/javascript"></script>
+		
+<script type="text/javascript">
+			$(function(){
+			$('#submit-button').click(function(){
+			$("#test-select option:selected").each(function(){
+            alert($(this).text()); //这里得到的就是
+        });
+			})
+			
+			})
+			</script>	
+		
+	</body>
+</html>

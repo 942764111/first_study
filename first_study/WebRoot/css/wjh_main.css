@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	padding:0;
+	margin:0;
+}
+a{
+	text-decoration:none;
+	
+}
+img{
+	border:0;
+}
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+#all {
+	width:1000px;
+	margin:1px auto 0 auto;
+	
+}
+#banner {
+	background:url(../images/main/bg.gif) repeat-x left top;
+	width:1000px;
+	height:72px;
+}
+#left {
+	float:left;
+	width:200px;
+	position:relative;
+}
+#left .menu_top {
+	width:200px;
+	height:15px;
+	background:url(../images/main/top.gif) no-repeat left top;
+	+background:url(../images/main/top.gif) no-repeat left bottom;
+	
+}
+#left .menu_center {
+	width:200px;
+	height:568px;
+	background:url(../images/main/border_bg.png) left top;
+}
+#left .menu_bottom {
+	height:15px;
+	background:url(../images/main/border_end.png) no-repeat left top;
+}
+
+#left .menu_center #menu1{
+	float:left;
+	position:relative;
+	list-style:none;
+	width:30px;
+	background:transparent;
+	margin:-4px 0 0 0;
+	padding:0 0 0 7px;
+}
+#left .menu_center #menu1 li{
+	line-height:110%;
+	color:#165E92;
+	clear:both;
+	font-weight:400;
+	height:53px;
+	width:14px;
+	padding:4px 5px 1px 7px;
+	background:transparent url(../images/main/left_tab_Selectedno.gif) no-repeat left top;
+	CURSOR: pointer;
+	position:relative;
+	z-index:1;
+}
+#left .menu_center ul#menu1 li.Selected{
+	line-height:110%;
+	height:53px;
+	width:14px;
+	padding:3px 4px 2px 8px;
+	font-weight:400;
+	color:#000;
+	background:url(../images/main/left_tab_Selected.gif) no-repeat left top;
+	
+}
+#left .menu_center div#right_item{
+	float:left;
+	position:relative;
+	width:155px;
+}
+#left .menu_center div#right_item ul {
+	list-style:none;
+}
+#left .menu_center div#right_item  ul li{
+	list-style:none;
+}
+#left .menu_center div#right_item  ul li#now11{
+	text-align:left;
+}
+#left .menu_center div#right_item  ul li a{
+	display:block;
+	padding:2px 1px 0px 36px;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #F60;
+	text-align: left;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFF;
+	border-right-color: #FFF;
+	border-left-color: #FFF;
+	height:18px;
+	CURSOR: pointer;
+	
+}
+#now11 {
+	position:relative;
+	display:block;
+	padding:3px 1px 2px 10px;
+	width:140px;
+	color:#115888;
+	border:1px #1879BD solid;
+	background:#D2E0F2;;
+}
+#right{
+	float:left;
+	position:relative;
+	width:800px;
+	+width:800px;
+	height:510px;
+}
+iframe{
+	border:none;
+	border-right:#1b77b7 dashed 0px;
+	border-top:#1b77b7 dashed 0px;
+	border-bottom:#1b77b7 dashed 0px;
+	margin-bottom:0px;
+	height:550px;
+	width:978px;
+	
+}
+/*设置左侧菜单被点击时，样式*/
+#right_item ul li a.Selected {background:#fff url("../img/index/picture/arrow.gif") no-repeat 18px center;font-weight:600;color:#115888;}
+/*设置左侧菜单鼠标滑过时，样式*/
+#right_item ul li a:hover {background:#fff url("../img/index/picture/arrow.gif") no-repeat 18px center;font-weight:600;color:#115888;}

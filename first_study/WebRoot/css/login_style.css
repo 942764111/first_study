@@ -1,0 +1,116 @@
+.login_top_bg {
+	BACKGROUND: url(../img/login/login-top-bg.gif);//û�Ĺ�
+	BACKGROUND-REPEAT: repeat-x;
+	
+}
+#sanjiao1{
+    BACKGROUND:url(../js/ui/themes/icons/sanjiao1.png);
+    background-repeat: no-repeat;
+    background-position:center;
+   
+}
+#sanjiao2{
+    BACKGROUND:url(../js/ui/themes/icons/sanjiao2.png);
+    background-repeat: no-repeat;
+    background-position:center;
+   
+   
+}
+#sanjiao3{
+    BACKGROUND:url(../js/ui/themes/icons/sanjiao3.png);
+    background-repeat: no-repeat;
+    background-position:center;
+  
+   
+}
+#login_buttom_bg {
+	BACKGROUND: url(../img/login/login-top-bg.gif);//û�Ĺ�
+	BACKGROUND-REPEAT: repeat-x;
+	
+	}
+.login_text {
+	FONT-SIZE: 15px; COLOR: #333333; LINE-HEIGHT: 25px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.login_txt {
+	FONT-SIZE: 12px; COLOR: #333333; LINE-HEIGHT: 25px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.Submit {
+	FONT-SIZE: 12px; COLOR: #629dae; BACKGROUND-REPEAT: repeat-x; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.Submitr {
+	FONT-SIZE: 12px; COLOR: #F30; BACKGROUND-REPEAT: repeat-x; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+#login_bg {
+	BACKGROUND-IMAGE: url(../img/login/login_bg.jpg);
+	
+}
+
+
+.login_txt_bt {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #666666; LINE-HEIGHT: 25px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+A:link {
+	FONT-SIZE: 14px; COLOR: #F60; LINE-HEIGHT: 25px; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 14px; COLOR: #abcad3 ; LINE-HEIGHT: 25px; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 14px; COLOR: #333333; LINE-HEIGHT: 25px; TEXT-DECORATION: none
+}
+
+#blue3_box {
+	padding:0;
+	margin-top: 2px;
+	margin-right: 0px;
+	margin-bottom: 2px;
+	margin-left: 0px;
+}
+#blue3_box th {
+	PADDING-RIGHT: 10px;
+	PADDING-LEFT: 10px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 6px;
+	HEIGHT: 24px;
+	TEXT-ALIGN: left;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #a7c2e7;
+	margin: 0px;
+	
+	}
+	.title_right {
+	color: #666;
+	text-align: right;
+	float: right;
+	font-size: 12px;
+}
+.title_left{
+	FONT-SIZE: 14px; COLOR: #666; TEXT-DECORATION: none;
+	float: left;
+	}
+
+#login_logo {
+	 padding-left:330px;
+	 padding-bottom:10px;
+	 font-weight:600;
+	font-size: 24px;
+	color: #036;
+}
+#login_logo2 {
+	FONT-SIZE: 24px; COLOR: #333333; LINE-HEIGHT: 25px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#note_txt{
+    FONT-SIZE: 12px; COLOR: #9C7E0B; LINE-HEIGHT: 20px; FONT-FAMILY: Arial, Helvetica, sans-serif;font-style:italic
+}
+#note_txt_1{
+    FONT-SIZE: 15px; COLOR: #9C7E0B; LINE-HEIGHT: 20px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+body {
+	RIGHT: 0px; LEFT: 0px; BOTTOM: 0px; TOP: 0px;
+	MARGIN: 0px; 
+	font-size:12px;
+}
+

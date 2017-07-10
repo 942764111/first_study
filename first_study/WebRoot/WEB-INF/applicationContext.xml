@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	  http://www.springframework.org/schema/aop  
+	  http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	  http://www.springframework.org/schema/beans  
+	  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	  http://www.springframework.org/schema/context
+	  http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	  http://www.springframework.org/schema/tx  
+	  http://www.springframework.org/schema/tx/spring-tx-2.5.xsd" default-autowire="byType">
+			
+		<context:annotation-config/>
+		<context:component-scan base-package="*" />
+    
+    <aop:aspectj-autoproxy />
+    
+    <!--声明事务管理者“名字”（此处是annotation形式）  -->
+    <tx:annotation-driven transaction-manager="transactionManager" /> 
+    
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+    
+	<bean id="propertyConfigurer"
+	      class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	      <property name="location">
+	         <value>/WEB-INF/systeminfo.properties</value>
+	      </property>
+	</bean>
+	
+	
+	
+	<!-- DBCP数据库连接数据源的配置 -->
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  destroy-method="close"> <!-- 把连接重新放到连接池里 -->
+        <!-- 添加连接池属性 -->
+        <property name="driverClassName" value="${DB.driverClassName}"/>
+        <property name="url"  value="${DB.server}"/>
+        <property name="username" value="${DB.username}"/>
+        <property name="password" value="${DB.password}"/>
+        <property name="initialSize" value="2" /> <!-- 初始连接数 -->
+        <property name="maxActive" value="50"/> <!-- 连接池最大连接数 -->
+        <property name="maxIdle" value="20"/>   <!-- 最大的可空闲的连接数 -->
+        <property name="minIdle" value="10"/>    <!-- 最小的可空闲的连接数 -->
+        <property name="logAbandoned" value="true" />  <!-- 超时后打印超时连接错误 -->
+        <property name="removeAbandoned" value="true" />   <!-- 超时移除连接 -->
+        <property name="removeAbandonedTimeout" value="300"/> <!-- 超时时间 -->
+        <property name="maxWait" value="20000"/>   <!-- 最大可以等待时间 -->
+        <property name="defaultAutoCommit" value="true"/>  <!-- 自动提交， -->
+       
+        <property name="validationQuery" value="SELECT 1"></property>
+        <property name="testWhileIdle" value="true"></property>
+        <property name="testOnBorrow" value="true"></property>
+        <property name="timeBetweenEvictionRunsMillis" value="3600000"></property>
+        <property name="numTestsPerEvictionRun" value="50"></property>
+        <property name="minEvictableIdleTimeMillis" value="120000"></property>
+    </bean>
+    
+    
+    <!--事务管理者具体内容  -->
+    <bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 定义事务管理拦截器 -->
+	<bean id="transactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+    
+    <bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		 <property name="dataSource" ref="dataSource"/>
+		 
+	    <!-- <property name="annotatedClasses">-->
+		<property name="packagesToScan">
+		<!--  <property name="annotatedClasses">-->
+		
+		 	<list>
+		 		<value>xx.collection.*</value>
+		 	</list>
+
+		 </property>
+		  
+		<property name="hibernateProperties"> <!-- 这里是Properties列表 -->
+			<props>
+
+			<!-- 	<prop key="hibernate.dialect"> org.hibernate.dialect.SQLServerDialect</prop>   -->
+				<prop key="hibernate.dialect"> org.hibernate.dialect.MySQLDialect</prop>
+
+				<prop key="hibernate.show_sql">true</prop> <!-- 显示sql -->
+			</props>
+
+		</property>
+	</bean>
+	<!--  不使用拦截器，用切面的aop,加的事务
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">   
+        <property name="sessionFactory" ref="sessionFactory" />   
+    </bean>   
+  
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">   
+        <tx:attributes>   
+            <tx:method name="get*" read-only="true" />
+            <tx:method name="*" propagation="REQUIRED" />   
+        </tx:attributes>   
+    </tx:advice>   
+       
+    <aop:config>   
+        <aop:pointcut id="interceptorPointCuts"  
+            expression="execution(* public xx.servie..*.*(..))" />   
+        <aop:advisor advice-ref="txAdvice"  
+            pointcut-ref="interceptorPointCuts" />           
+    </aop:config>
+    -->
+</beans>

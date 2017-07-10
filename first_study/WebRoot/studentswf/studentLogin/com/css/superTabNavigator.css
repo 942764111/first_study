@@ -1,0 +1,27 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace code "http://code.google.com/p/flexlib/";
+
+code|SuperTabNavigator {
+	tab-style-name:"myTabs";
+}
+
+.myTabs {
+	up-skin:ClassReference("studentLogin.com.skins.TabNavigatorTabSelectedSkin");
+	
+	down-skin:ClassReference("studentLogin.com.skins.TabNavigatorTabSelectedSkin");
+	
+	over-skin:ClassReference("studentLogin.com.skins.TabNavigatorTabSelectedSkin");
+	
+	disabled-skin:ClassReference("studentLogin.com.skins.TabNavigatorTabSelectedSkin");
+	
+	selected-up-skin:ClassReference("studentLogin.com.skins.TabNavigatorTabSkin");
+	
+	selected-down-skin:ClassReference("studentLogin.com.skins.TabNavigatorTabSkin");
+	
+	selected-over-skin:ClassReference("studentLogin.com.skins.TabNavigatorTabSkin");
+	
+	selected-disabled-skin:ClassReference("studentLogin.com.skins.TabNavigatorTabSkin");
+}
+

@@ -1,0 +1,48 @@
+﻿<!-- 
+ * @Author: http://www.somao.net
+ * @ O.W. ：http://www.somao123.com
+ * @   TEL: (0371)5600 9696
+ * @    QQ: 22568190
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>资源搜索。</title>
+
+<link href="../../images/home.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+
+<script type="text/javascript">
+function subck(){
+	var q = document.getElementById("kw").value;
+	if(q=='' || q=='请输入关键字搜索网页'){return false;}else{return true;}
+}
+
+<script type="text/javascript">
+		   function checkSubmit()
+		   {
+		      var content = document.getElementById("queryString");
+		      if(""==content.value)
+		      {
+		         return false;
+		      }
+		      return true;
+		   }
+		</script>
+</head>
+
+<body>
+<div id="wrap">
+<br/><br/><br/><br/><br/><br/>
+<div><center><img src="../../images/14.png"/></center></div>
+
+<div class="searchbox">
+ <form action="/Search.html" method="post" onsubmit="return checkSubmit();"><input align="middle" name="queryString" class="q" id="queryString"  value="请输入关键字搜索网页" onfocus="javascript:if(this.value=='请输入关键字搜索网页'){this.value='';this.style.color='#333';this.style.borderColor='#';}" onblur="javascript:if(this.value==''){this.value='请输入关键字搜索网页';this.style.color='#CCC';this.style.borderColor='#CFC7C8';}" maxlength="100" size="50" autocomplete="off" baiduSug="1" /><input name="re" type="hidden" value="1" /><input id="btn" style="background:#39a6df" class="btn" align="middle" value="搜索一下" type="submit" />
+        </form>
+</div>
+<br/><br/>
+
+</div>
+</body>
+</html>
